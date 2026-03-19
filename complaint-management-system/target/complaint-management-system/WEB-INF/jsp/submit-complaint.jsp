@@ -71,7 +71,8 @@
                         <label for="title">Complaint Title *</label>
                         <input type="text" id="title" name="title" class="form-control"
                                placeholder="Brief summary of your complaint (e.g. Water supply issue in Block A)"
-                               maxlength="200" required>
+                               maxlength="200"
+                               value="${not empty titleVal ? titleVal : ''}" required>
                     </div>
 
                     <div class="form-row">
@@ -79,23 +80,23 @@
                             <label for="category">Category *</label>
                             <select id="category" name="category" class="form-control" required>
                                 <option value="">— Select Category —</option>
-                                <option value="Infrastructure">🏗️ Infrastructure</option>
-                                <option value="Electrical">⚡ Electrical</option>
-                                <option value="Sanitation">🚮 Sanitation</option>
-                                <option value="Water Supply">💧 Water Supply</option>
-                                <option value="Road & Transport">🛣️ Road & Transport</option>
-                                <option value="Public Safety">🛡️ Public Safety</option>
-                                <option value="Internet / IT">💻 Internet / IT</option>
-                                <option value="Administrative">📁 Administrative</option>
-                                <option value="Other">📌 Other</option>
+                                <option value="Infrastructure" ${categoryVal=='Infrastructure' ? 'selected' : ''}>🏗️ Infrastructure</option>
+                                <option value="Electrical" ${categoryVal=='Electrical' ? 'selected' : ''}>⚡ Electrical</option>
+                                <option value="Sanitation" ${categoryVal=='Sanitation' ? 'selected' : ''}>🚮 Sanitation</option>
+                                <option value="Water Supply" ${categoryVal=='Water Supply' ? 'selected' : ''}>💧 Water Supply</option>
+                                <option value="Road & Transport" ${categoryVal=='Road & Transport' ? 'selected' : ''}>🛣️ Road & Transport</option>
+                                <option value="Public Safety" ${categoryVal=='Public Safety' ? 'selected' : ''}>🛡️ Public Safety</option>
+                                <option value="Internet / IT" ${categoryVal=='Internet / IT' ? 'selected' : ''}>💻 Internet / IT</option>
+                                <option value="Administrative" ${categoryVal=='Administrative' ? 'selected' : ''}>📁 Administrative</option>
+                                <option value="Other" ${categoryVal=='Other' ? 'selected' : ''}>📌 Other</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="priority">Priority *</label>
                             <select id="priority" name="priority" class="form-control" required>
-                                <option value="LOW">🟢 Low</option>
-                                <option value="MEDIUM" selected>🟡 Medium</option>
-                                <option value="HIGH">🔴 High</option>
+                                <option value="LOW" ${priorityVal=='LOW' ? 'selected' : ''}>🟢 Low</option>
+                                <option value="MEDIUM" ${(empty priorityVal || priorityVal=='MEDIUM') ? 'selected' : ''}>🟡 Medium</option>
+                                <option value="HIGH" ${priorityVal=='HIGH' ? 'selected' : ''}>🔴 High</option>
                             </select>
                         </div>
                     </div>
@@ -104,7 +105,7 @@
                         <label for="description">Description *</label>
                         <textarea id="description" name="description" class="form-control"
                                   placeholder="Provide a detailed description: location, time, impact, any relevant context..."
-                                  rows="5" required></textarea>
+                                  rows="5" required><c:out value="${descriptionVal}"/></textarea>
                     </div>
 
                     <div class="flex gap-2" style="justify-content:flex-end; margin-top:8px;">

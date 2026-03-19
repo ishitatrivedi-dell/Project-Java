@@ -29,6 +29,12 @@ public class SubmitComplaintServlet extends HttpServlet {
         String category    = req.getParameter("category");
         String priority    = req.getParameter("priority");
 
+        // Preserve entered values when redisplaying the form
+        req.setAttribute("titleVal", title);
+        req.setAttribute("descriptionVal", description);
+        req.setAttribute("categoryVal", category);
+        req.setAttribute("priorityVal", priority);
+
         // Server-side validation
         if (title == null || title.isBlank() ||
             description == null || description.isBlank() ||
