@@ -117,6 +117,7 @@ button, input, select, textarea { font-family: inherit; }
 .auth-logo .logo-text {
     font-size: 1.1rem; font-weight: 700;
     background: var(--accent-gradient);
+    background-clip: text;
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 }
 .auth-card h2 { font-size: 1.6rem; font-weight: 700; margin-bottom: 6px; }
@@ -149,6 +150,16 @@ button, input, select, textarea { font-family: inherit; }
 }
 textarea.form-control { resize: vertical; min-height: 110px; }
 select.form-control { cursor: pointer; }
+/* Ensure select dropdown text stays visible on dark theme (Windows browsers) */
+select.form-control {
+    background-color: rgba(255,255,255,0.04);
+    color: var(--text-primary);
+}
+select.form-control option,
+select.form-control optgroup {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+}
 
 /* ── Buttons ───────────────────────────────────────────────────── */
 .btn {
@@ -228,6 +239,7 @@ select.form-control { cursor: pointer; }
 .sidebar-logo .logo-name {
     font-size: 0.95rem; font-weight: 700;
     background: var(--accent-gradient);
+    background-clip: text;
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     line-height: 1.2;
 }
@@ -252,6 +264,7 @@ select.form-control { cursor: pointer; }
     font-size: 0.7rem; font-weight: 600; letter-spacing: 0.5px;
     text-transform: uppercase;
     background: var(--accent-gradient);
+    background-clip: text;
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 }
 
@@ -300,6 +313,7 @@ select.form-control { cursor: pointer; }
 .page-title {
     font-size: 1.6rem; font-weight: 700;
     background: var(--accent-gradient);
+    background-clip: text;
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     margin-bottom: 4px;
 }
